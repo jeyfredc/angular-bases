@@ -1,8 +1,10 @@
 <h3>Listado de heroes</h3>
 <!-- ngIf es una forma de condicionar el html de una forma sencilla si existe va a ir mostrando el heroe borrado  si no se pone una bandera
 llamada nothingWasDeleted-->
-<div *ngIf="deletedHero else nothingWasDeleted">
-  <h3>Heroe Borrado <small class="text-danger">{{deletedHero}}</small></h3>
+<div *ngIf="deletedHero; else nothingWasDeleted">
+  <h3>
+    Heroe Borrado <small class="text-danger">{{ deletedHero }}</small>
+  </h3>
 </div>
 
 <!-- Para invocar la bandera se utiliza el ng-template y la bandera se llama utilizando el # con el nombre de la bandera -->
@@ -10,12 +12,16 @@ llamada nothingWasDeleted-->
   <h3>No ha borrado nada</h3>
 </ng-template>
 
-<button *ngIf="heroNames.length > 0"
-  (click)="removeLastHero()" class="btn btn-outline-danger">Borrar ultimo heroe</button>
+<button
+  *ngIf="heroNames.length > 0"
+  (click)="removeLastHero()"
+  class="btn btn-outline-danger"
+>
+  Borrar ultimo heroe
+</button>
 <ul class="mt-2 list-group">
-
-<!-- Tambien se puede hacer ciclos for de una forma sencia con *ngFor -->
-  <li *ngFor="let name of heroNames" class="list-group-item">{{name}}</li>
+  <!-- Tambien se puede hacer ciclos for de una forma sencia con *ngFor -->
+  <li *ngFor="let name of heroNames" class="list-group-item">{{ name }}</li>
 </ul>
 
 <!-- Recordar que todas las variables vienen de list.component.ts -->

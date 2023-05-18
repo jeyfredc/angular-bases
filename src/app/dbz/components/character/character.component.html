@@ -1,0 +1,26 @@
+<h4>Agregar personaje</h4>
+<!-- Para formularios se trabaja el evento ngSubmit, este ayuda a que no se recargue la pagina-->
+<form class="row" (ngSubmit)="saveCharacter()">
+  <!-- Para poder trabajar con formularios se puede hacer el uso de ngModel y se representa
+  como una caha de banana [()] esta caja de banana lo que quiere decir lo que es parentesis es un evento y
+lo que es corchetes cuadrados es una propiedad de Angular, asi que para hacer uso de este se pone [(ngModel)] y
+luego se agrega la propiedad que se quiere capturar para este caso seria character.name y character.power que vienen de
+character.components -->
+  <!-- Para que funcione ngModel en dbzModule debemos importar FormsModule-->
+  <input
+    [(ngModel)]="character.name"
+    name="name"
+    class="form-control mb-2"
+    type="text"
+    placeholder="Nombre"
+  />
+  <input
+    [(ngModel)]="character.power"
+    name="power"
+    class="form-control mb-2"
+    type="number"
+    placeholder="Poder"
+  />
+
+  <button type="submit" class="btn btn-primary">Agregar</button>
+</form>

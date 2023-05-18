@@ -1,0 +1,17 @@
+<h1>DBZ Personajes</h1>
+<hr />
+
+<div class="row">
+  <div class="col">
+    <!-- characterList se esta importando de list.component pero como tal no se va a ver la propiedad de trunks por ahora  -->
+    <dbz-list [characterList]="characters" (onDeleteId)="onDeleteCharacter($event)" ></dbz-list>
+    <!--  -->
+  </div>
+  <div class="col">
+    <!-- lo que esta entre () es el escuchador que proviene de character.component
+    lo que esta despues es una funcion que se tiene que que crear en el main.component donde recibe los datos que provienen de character.component
+  en este caso la funcion se llama igual onNewCharacter, en los parentesis se le debe agregar obligatoriamente $event-->
+    <dbz-add-character (onNewCharacter)="onNewCharacter($event)" ></dbz-add-character>
+
+  </div>
+</div>
